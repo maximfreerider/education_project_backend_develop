@@ -1,10 +1,15 @@
 from rest_framework import serializers
-from polls.models import User
+from polls.models import User, Package, Mode_Of_Study
 
 
-class UserSerializer(serializers.ModelSerializer):
-    """ Сериализация пользователей"""
+class PackageSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = User
-        fields = ('first_name', 'surname', 'email')
+        model = Package
+        fields = ('users', 'name_of_package', 'price', 'lenght_discription', 'short_discription')
+
+
+class ModeOfStudy(serializers.ModelSerializer):
+    class Meta:
+        model = Mode_Of_Study
+        fields = ('name_of_mos', 'description', 'image_for_presentation', 'text_for_read')
