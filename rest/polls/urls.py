@@ -3,5 +3,6 @@ from polls.views import *
 
 
 urlpatterns = [
-    path('package/', Packages.as_view())
+    path('packages/', Packages.as_view()),
+    path('users/', Users.as_view())
 ]

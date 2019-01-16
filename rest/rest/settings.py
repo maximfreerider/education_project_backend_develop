@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'registration',
+
     'django_summernote',
     'rest_framework',
     'rest_framework.authtoken',
