@@ -20,6 +20,6 @@ from rest import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
-    path('registration/', include('registration.urls')),
-    path('', views.index, name="index")
+    path('', views.index, name="index"),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
 ]

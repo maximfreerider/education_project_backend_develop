@@ -28,25 +28,28 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
-# Application definition
+
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'registration',
-
+    'polls.apps.PollsConfig',
     'django_summernote',
     'rest_framework',
-    'rest_framework.authtoken',
-    'djoser',
+    'rest_framework_simplejwt',
 ]
+
+AUTH_USER_MODEL = 'polls.CustomerUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -90,7 +93,7 @@ DATABASES = {
         'NAME': 'test1',
         'USER': 'postgres',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'HOST': '',
         'PORT': '5432'
     }
 }

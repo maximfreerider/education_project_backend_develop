@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from polls.models import User, Package, Mode_Of_Study
-
-
+from polls.forms import UserCreationForm
+from rest_framework.validators import UniqueValidator
 
 
 
@@ -14,7 +14,7 @@ class ModeOfStudySerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'number_of_credir_card','email', 'date_of_birth')
+        fields = ('id', 'first_name', 'last_name', 'email', 'date_of_birth')
 
 
 class PackageSerializer(serializers.ModelSerializer):

@@ -1,21 +1,28 @@
 from django.db import models
-from django.contrib.auth.hashers import PBKDF2PasswordHasher
+from django.contrib.auth.models import AbstractUser, UserManager
+from django.conf import settings
+
+
+class CustomerUser(AbstractUser):
+    bio = models.CharField(max_length=125)
+    birth_date = models.DateTimeField(verbose_name='Date of birth', null=True)
 
 
 class Comment(models.Model):
     feedback_id = models.IntegerField()
+    objects = UserManager()
 
 
 class User(models.Model):
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
-    password = PBKDF2PasswordHasher()
+    # password = PBKDF2PasswordHasher()
     nickname = models.CharField(max_length=25)
-    number_of_credir_card = models.IntegerField()
+    # number_of_credir_card = models.IntegerField(blank=True)
     email = models.EmailField()
     photo = models.ImageField(upload_to='User', blank=True)   # при значении True поле может быть пустым
     date_of_birth = models.DateField('Дата народження')
-    comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    # comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
 
 
 class Answer_list(models.Model):
@@ -53,17 +60,17 @@ class Test_mode(models.Model):
 
 
 class Mode_Of_Study(models.Model):
-    ask_id = models.ForeignKey(Ask_mode, on_delete=models.CASCADE)
-    test_id = models.ForeignKey(Test_mode, on_delete=models.CASCADE)
+    # ask_id = models.ForeignKey(Ask_mode, on_delete=models.CASCADE)
+    # test_id = models.ForeignKey(Test_mode, on_delete=models.CASCADE)
     name_of_mos = models.CharField(max_length=50)
     description = models.TextField()
     image_for_presentation = models.ImageField(upload_to='Mode_Of_Study',blank=True)
     text_for_read = models.TextField()
-    comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    # comment_id = models.ForeignKey(Comment, on_delete=models.CASCADE)
 
 
 class Package(models.Model):
-    mode_of_study_id = models.ForeignKey(Mode_Of_Study, on_delete=models.CASCADE)
+    # mode_of_study_id = models.ForeignKey(Mode_Of_Study, on_delete=models.CASCADE)
     users = models.ManyToManyField(User, 'Користувачі')
     name_of_package = models.CharField(max_length=100)
     price = models.FloatField(verbose_name='Ціна за пакет')
