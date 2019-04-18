@@ -4,10 +4,12 @@ from .models import Package
 from django.contrib.auth import authenticate
 from rest_framework import exceptions
 
+
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'first_name', 'last_name', 'username', 'password', 'bio')
+        lookup_field = "id"
 
 
 class LoginSerializer(serializers.Serializer):

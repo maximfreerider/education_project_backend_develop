@@ -6,6 +6,24 @@ from django.conf import settings
 class Package(models.Model):
     name_of_package = models.CharField(max_length=150, default=0, null=True, blank=True)
 
+# class AskAnswerMode(models.Model):
+#     pass
+#
+#
+# class TestMode(models.Model):
+#     pass
+#
+#
+# class ModeOfStudy(models.Model):
+#     pass
+#
+#
+# class Package(models.Model):
+#     name_of_package = models.CharField(max_length=150, default=0, null=True, blank=True)
+#     asks_answers = models.ForeignKey(AskAnswerMode, on_delete=models.CASCADE, blank=True, null=True)
+#     tests = models.ForeignKey(TestMode, on_delete=models.CASCADE, blank=True, null=True)
+#
+
 
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField

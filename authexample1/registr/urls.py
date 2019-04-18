@@ -7,6 +7,9 @@ urlpatterns = [
     # path('users/', views.CustomUserView.as_view()),
     path('generics/users/', views.CustomUserListView.as_view()),
     path('generics/users/<int:id>/', views.CustomUserListView.as_view()),
+    path('creating/acc/', views.CustomUserCreating.as_view()),
+    path('accounts/', include('allauth.urls')),
+    path('facebook/', views.FacebookLogin.as_view()),
 ]
 
 

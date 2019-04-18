@@ -40,6 +40,13 @@ sequence|table|27704|27706|1
 sequence|table|27717|27719|1
 sequence|table|27725|27727|1
 sequence|table|27784|27786|1
+sequence|table|44043|44045|1
+sequence|table|44054|44056|1
+sequence|table|44064|44066|1
+sequence|table|44091|44093|1
+sequence|table|44102|44104|1
+sequence|table|44110|44112|1
+sequence|table|44118|44120|1
 </Relations>
     </database>
     <role id="6" parent="1" name="pg_execute_server_program">
